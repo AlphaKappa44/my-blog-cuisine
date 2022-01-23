@@ -1,27 +1,24 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
 const Home = () => {
-    // let name = 'Alexandre';
-    const [name, setName] = useState('Boeuf bourguignon')
-    const [length, setlength] = useState(`90'`)
 
-    const handleClick = () => {
-        // name = 'Marie';
-        // console.log(name);
-        setName('Ramen');
-        setlength(`45'`);
-    }
+    const [blogs, setBlogs] = useState([
+        { title: 'Boeuf Bourguignon', body: 'lorem ipsum dolor sit amet, con', time:'90', id: 1 },
+        { title: 'Ramen', body: 'lorem ipsum dolor sit amet, con', time:'30', id: 2 },
+        { title: 'Soupe à l\'oignon', body: 'lorem ipsum dolor sit amet, con', time:'20', id: 3 }
+    ])
 
-    // const handleClickAgain = (name, e) => {
-    //     console.log('handling a Ninja Dynamic click with parameter' + name, e.target);
-    // }
 
     return ( 
         <div className="home">
-            <h2>Homepage</h2>
-            <p>{name}, {length} minutes</p>
-            <button onClick={handleClick}>Click Me! </button>
-            {/* <button onClick={(e) => handleClickAgain(' Alexandre', e)}>Click again! </button> */}
+            {blogs.map((blog) => (
+                <div className="blog-preview" key={blog.id}>
+                    <h2>{blog.title}</h2>
+                    <p>will take you {blog.time} minutes to cook</p>
+                </div>
+            )
+            )}
+
         </div>
      );
 }
