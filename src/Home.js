@@ -11,12 +11,17 @@ const Home = () => {
 
     ])
 
+    const handleDelete = (id) => {
+        const deletedRecipe = recipes.filter(recipe => recipe.id !== id);
+        setRecipes(deletedRecipe);
+    }
+
 
     return ( 
 
         <div className="home">
 
-            <RecipeList recipes={recipes} title="Recipe List!" ></RecipeList>
+            <RecipeList recipes={recipes} title="Recipe List!" handleDelete={handleDelete}></RecipeList>
             <RecipeList recipes={recipes.filter((recipe) => recipe.title === 'Ramen')} title="Recipe List No2" ></RecipeList>
             <RecipeList recipes={recipes} title="Recipe List No3" ></RecipeList>
 
