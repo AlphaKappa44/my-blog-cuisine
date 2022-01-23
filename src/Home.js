@@ -17,6 +17,8 @@ const Home = () => {
         <div className="home">
 
             <RecipeList recipes={recipes} title="Recipe List!" ></RecipeList>
+            <RecipeList recipes={recipes.filter((recipe) => recipe.title === 'Ramen')} title="Recipe List No2" ></RecipeList>
+            <RecipeList recipes={recipes} title="Recipe List No3" ></RecipeList>
 
         </div>
      );
