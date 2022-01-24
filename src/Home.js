@@ -3,15 +3,9 @@ import RecipeList from './RecipeList';
 
 const Home = () => {
 
-    const [recipes, setRecipes] = useState([
+    const [recipes, setRecipes] = useState(null);
 
-        { title: 'Boeuf Bourguignon', body: 'lorem ipsum dolor sit amet, con', time:'90', id: 1 },
-        { title: 'Ramen', body: 'lorem ipsum dolor sit amet, con', time:'30', id: 2 },
-        { title: 'Soupe à l\'oignon', body: 'lorem ipsum dolor sit amet, con', time:'20', id: 3 }
-
-    ])
-
-    const [title, setTitle] = useState('Boeuf Bourguignon');
+    // const [title, setTitle] = useState('Boeuf Bourguignon');
 
     const handleDelete = (id) => {
         const deletedRecipe = recipes.filter(recipe => recipe.id !== id);
@@ -19,22 +13,32 @@ const Home = () => {
     }
 
     // useEffect with dependencies, triggers the effect from one state value.
-    // it will re-render the page only once with an empty array passed in.
+    // it will re-render the page only once with an arrayempty array passed in.
     useEffect(() => {
-         console.log('useEffect has played!');
-         console.log(title);
-    }, [title]);
+        
+        // fetch the data as soon as the component renders
+        fetch( 'http://localhost:8000/recipes')
+        .then(res => {
+            return res.json();
+        })
+        .then(data => {
+            console.log(data);
+            setRecipes(data);
+        })
+   }, []);
 
     return ( 
 
         <div className="home">
 
-            <RecipeList recipes={recipes} title="Recipe List!" handleDelete={handleDelete}></RecipeList>
-            {/* <RecipeList recipes={recipes.filter((recipe) => recipe.title === 'Ramen')} title="Recipe List No2" ></RecipeList> */}
+            {/* Evaluate the left side of  "&&" ("Recipes"), then if this is "false", right of "&&" is totally ignored.
+            Here it is ignored as it is null and null is evaluated as "false"  */}
+            {recipes && <RecipeList recipes={recipes} title="Recipe List!" handleDelete={handleDelete}></RecipeList>}
+            {/* <RecipeList recipes={recipes.filter((recipe) => recipe.title === 'Ramen')} title="Recipe List No2" ></RecipeList> 
 
             <button onClick={() => setTitle('Tajine d\'agneau au fenouil')}>Change recipe's title</button>
-            <p> {title} </p>
-           
+            <p> {title} </p> */}
+            
 
         </div>
      );

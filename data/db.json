@@ -1,0 +1,28 @@
+{
+  "recipes": [
+    {
+      "title": "My first recipe",
+      "body": "lorem ipsum dolor sit amet con",
+      "time": "90",
+      "id": 1
+    },
+    {
+      "title": "Boeuf Bourguignon",
+      "body": "lorem sit amet con",
+      "time": "30",
+      "id": 2
+    },
+    {
+      "title": "Ramen",
+      "body": "dolor sit ame con",
+      "time": "20",
+      "id": 3
+    },
+    {
+      "title": "Soupe à l'oignon",
+      "body": "lorem ipsum con",
+      "time": "20",
+      "id": 4
+    }
+  ]
+}
