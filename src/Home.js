@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import RecipeList from './RecipeList';
 
 const Home = () => {
@@ -16,6 +16,10 @@ const Home = () => {
         setRecipes(deletedRecipe);
     }
 
+    useEffect(() => {
+         console.log('useEffect has played!');
+         console.log(recipes);
+    });
 
     return ( 
 
