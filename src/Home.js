@@ -18,15 +18,17 @@ const Home = () => {
     useEffect(() => {
         
         // fetch the data as soon as the component renders
-        fetch( 'http://localhost:8000/recipes')
-        .then(res => {
-            return res.json();
-        })
-        .then(data => {
-            console.log(data);
-            setRecipes(data);
-            setIsLoading(false);
-        })
+            setTimeout(() => {
+                fetch( 'http://localhost:8000/recipes')
+                .then(res => {
+                    return res.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    setRecipes(data);
+                    setIsLoading(false);
+                })
+            }, 1000);
    }, []);
 
     return ( 
