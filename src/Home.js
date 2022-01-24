@@ -4,6 +4,7 @@ import RecipeList from './RecipeList';
 const Home = () => {
 
     const [recipes, setRecipes] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     // const [title, setTitle] = useState('Boeuf Bourguignon');
 
@@ -24,6 +25,7 @@ const Home = () => {
         .then(data => {
             console.log(data);
             setRecipes(data);
+            setIsLoading(false);
         })
    }, []);
 
@@ -33,7 +35,8 @@ const Home = () => {
 
             {/* Evaluate the left side of  "&&" ("Recipes"), then if this is "false", right of "&&" is totally ignored.
             Here it is ignored as it is null and null is evaluated as "false"  */}
-            {recipes && 
+            {isLoading && <div className="loading">Loading...</div> }
+            { recipes && 
             <RecipeList 
                 recipes={recipes} 
                 title="Recipe List!" 
