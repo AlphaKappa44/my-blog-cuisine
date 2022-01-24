@@ -7,10 +7,10 @@ const Home = () => {
 
     // const [title, setTitle] = useState('Boeuf Bourguignon');
 
-    const handleDelete = (id) => {
-        const deletedRecipe = recipes.filter(recipe => recipe.id !== id);
-        setRecipes(deletedRecipe);
-    }
+    // const handleDelete = (id) => {
+    //     const deletedRecipe = recipes.filter(recipe => recipe.id !== id);
+    //     setRecipes(deletedRecipe);
+    // }
 
     // useEffect with dependencies, triggers the effect from one state value.
     // it will re-render the page only once with an arrayempty array passed in.
@@ -33,7 +33,14 @@ const Home = () => {
 
             {/* Evaluate the left side of  "&&" ("Recipes"), then if this is "false", right of "&&" is totally ignored.
             Here it is ignored as it is null and null is evaluated as "false"  */}
-            {recipes && <RecipeList recipes={recipes} title="Recipe List!" handleDelete={handleDelete}></RecipeList>}
+            {recipes && 
+            <RecipeList 
+                recipes={recipes} 
+                title="Recipe List!" 
+                // handleDelete={handleDelete}
+            >
+            </RecipeList>}
+
             {/* <RecipeList recipes={recipes.filter((recipe) => recipe.title === 'Ramen')} title="Recipe List No2" ></RecipeList> 
 
             <button onClick={() => setTitle('Tajine d\'agneau au fenouil')}>Change recipe's title</button>
