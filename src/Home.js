@@ -19,15 +19,21 @@ const Home = () => {
         
         // fetch the data as soon as the component renders
             setTimeout(() => {
-                fetch( 'http://localhost:8000/recipes')
-                .then(res => {
-                    return res.json();
-                })
-                .then(data => {
-                    console.log(data);
-                    setRecipes(data);
-                    setIsLoading(false);
-                })
+                fetch( 'http://localhost:8000/recipeSs')
+                    .then(res => {
+                        if (!res.ok) {
+                        console.log(res);
+                    throw new Error('Couldn\'t fetch data from server')}
+                        return res.json();
+                    })
+                    .then(data => {
+                        console.log(data);
+                        setRecipes(data);
+                        setIsLoading(false);
+                    })
+                    .catch(err => {
+                        console.log(err.message);
+                    })
             }, 1000);
    }, []);
 
