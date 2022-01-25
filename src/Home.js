@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
 import RecipeList from "./RecipeList";
+import useFetch from "./UseFetch";
 
 const Home = () => {
-  const [recipes, setRecipes] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+    const { data, isLoading, error} = useFetch("http://localhost:8000/recipes");
+
 
   // const [title, setTitle] = useState('Boeuf Bourguignon');
 
@@ -15,38 +14,15 @@ const Home = () => {
 
   // useEffect with dependencies, triggers the effect from one state value.
   // it will re-render the page only once with an arrayempty array passed in.
-  useEffect(() => {
-    // fetch the data as soon as the component renders
-    setTimeout(() => {
-      fetch("http://localhost:8000/recipesSSSSSSSSSSSSSSSSSS")
-        .then((res) => {
-          if (!res.ok) {
-            console.log(res);
-            throw new Error("Couldn't fetch data from server");
-          }
-          return res.json();
-        })
-        .then((data) => {
-          console.log(data);
-          setRecipes(data);
-          setIsLoading(false);
-          setError(null);
-        })
-        .catch((err) => {
-          console.log(err.message);
-          setIsLoading(false);
-          setError(err.message);
-        });
-    }, 1000);
-  }, []);
+
 
   return (
     <div className="home">
       { error && <h1 className="error"> { error } </h1> }
       {isLoading && <div className="loading">Loading...</div>}
-      {recipes && (
+      {data && (
         <RecipeList
-          recipes={recipes}
+          recipes={data}
           title="Recipe List!"
           // handleDelete={handleDelete}
         ></RecipeList>
