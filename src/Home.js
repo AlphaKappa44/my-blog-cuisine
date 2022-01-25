@@ -24,7 +24,7 @@ const Home = () => {
       {data && (
         <RecipeList
           recipes={data}
-          title="Recipe List!"
+          title="All the recipes:"
           // handleDelete={handleDelete}
         ></RecipeList>
       )}
