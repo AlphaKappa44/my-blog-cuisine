@@ -1,12 +1,36 @@
-# Getting Started with Create React App
+# 👨🏼‍🍳 This is an application for me to store my recipes ✊🏼
+
+> "I like cooking so i decided to keep here some of my recipes."
+
+***#pseudoFrenchChef***
+
+> "I love to cook differently everytime but i never remember how i've done my things later on if ever i need to!"
+
+***#fishMemory***
+
+> "My prefered color are purple, orange and green whenever my daughter asks me but it has nothing to do with what you are looking for."
+ 
+***#hashTag***
+
+      - Alexandre K.: some day of intense motivation in the year 2022 -
+
+
+
+## Getting Started with Create React App 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+# Available Scripts
+
+⚠️ In the project directory, you should run "👉🏽" in 2 terminals: 👍🏼
+
+## 👉🏽 `npx json-server --watch data/db.json --port 8000`
+
+Runs json-server on port 8000 and connects to 'db.json' file where recipes are, in order to simulate API calls.
+
+## 👉🏽 `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
