@@ -1,3 +1,4 @@
+import { Link} from 'react-router-dom';
 // const RecipeList = (props) => {
 //   const recipes = props.recipes;
 //   const title = props.title;
@@ -12,8 +13,11 @@ const RecipeList = ({
         <h2> {title} </h2>
       {recipes.map((recipe) => (
         <div className="recipe-preview" key={recipe.id}>
-          <h2>{recipe.title}</h2>
-          <p>will take you {recipe.time} minutes to cook</p>
+          <Link to = {`/recipes/${recipe.id}`} >
+            <h2>{recipe.title}</h2>
+            <p>will take you {recipe.time} minutes to cook</p>
+          </Link>
+
           {/* <button onClick={() => handleDelete(recipe.id)}>delete</button> */}
         </div>
       ))}
