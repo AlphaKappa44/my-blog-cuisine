@@ -14,8 +14,12 @@
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
 }
-.navbar h1 {
+
+h2 {
   color: #f1356d;
+}
+.navbar h1 {
+  color: #3a8590;
 }
 .navbar .links {
   margin-left: auto;
@@ -45,7 +49,7 @@
 }
 .recipe-preview h2 {
   font-size: 20px;
-  color: #f1356d;
+  color: #2e6f7d;
   margin-bottom: 8px;
 }
 .recipe-preview a{
@@ -55,7 +59,7 @@
 /* recipe details page */
 .recipe-details h2 {
   font-size: 20px;
-  color: #f1356d;
+  color: #2e6f7d;
   margin-bottom: 10px;
 }
 .recipe-details div {
