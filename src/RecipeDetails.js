@@ -2,7 +2,9 @@ import { useParams } from "react-router-dom";
 
 const RecipeDetails = () => {
 
+    // id param '/recipes/:id'
     const {id} = useParams();
+    // 
 
     return ( 
         <div className="recipe-details">
