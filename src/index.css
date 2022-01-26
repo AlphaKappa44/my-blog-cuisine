@@ -22,6 +22,7 @@ h2 {
   color: #3a8590;
 }
 .navbar .links {
+  display: flex;
   margin-left: auto;
 }
 .navbar a {
