@@ -10,8 +10,13 @@ const Create = () => {
         e.preventDefault();
         const recipe = { title, time, body};
         
-        console.log(recipe);
-        console.log(JSON.stringify(recipe));
+        fetch('http://localhost:8000/recipes', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify(recipe)
+        }).then(()=> {
+            console.log('The new recipe was added to the database!')
+        })
     }
 
     return ( 
