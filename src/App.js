@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import Home from './Home';
 import Create from './Create';
 import RecipeDetails from './RecipeDetails';
+import NotFound from './NotFound';
 
 function App() {
 
@@ -22,6 +23,9 @@ function App() {
 				</Route>
         <Route path="/recipes/:id">
 					<RecipeDetails />
+				</Route>
+        <Route path="*">
+					<NotFound />
 				</Route>
 			</Switch>
           </div>
