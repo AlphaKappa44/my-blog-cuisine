@@ -1,12 +1,17 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const Create = () => {
+    // Create states for post request
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [time, setTime] = useState('90');
 
     // Set a loading status
     const [isLoading, setIsLoading] = useState(false);
+
+    // initialise history to redirect when the recipe has been created
+    const history = useHistory();
 
     const handleSubmit = (e) => {
         // prevent the refresh when submiting button is pressed
@@ -25,7 +30,13 @@ const Create = () => {
 
             // Here we want the loading state to be false;
             setIsLoading(false);
+
+            // When the recipe is created, we go to the previeous page
+            // history.go(-1);
+            // When the recipe is created, we go to a special page
+            history.push('/');
         })
+
     }
 
     return ( 
