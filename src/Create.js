@@ -5,12 +5,21 @@ const Create = () => {
     const [body, setBody] = useState('');
     const [time, setTime] = useState('90');
 
+    const handleSubmit = (e) => {
+        // prevent the refresh when submiting button is pressed
+        e.preventDefault();
+        const recipe = { title, time, body};
+        
+        console.log(recipe);
+        console.log(JSON.stringify(recipe));
+    }
+
     return ( 
         <div className="create">
             <h2>
                 Add a new Recipe.
             </h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>
                     Recipe title:
                 </label>
