@@ -5,10 +5,16 @@ const Create = () => {
     const [body, setBody] = useState('');
     const [time, setTime] = useState('90');
 
+    // Set a loading status
+    const [isLoading, setIsLoading] = useState(false);
+
     const handleSubmit = (e) => {
         // prevent the refresh when submiting button is pressed
         e.preventDefault();
         const recipe = { title, time, body};
+
+        // Here we want the loading state to be true;
+        setIsLoading(true);
         
         fetch('http://localhost:8000/recipes', {
             method: 'POST',
@@ -16,6 +22,9 @@ const Create = () => {
             body: JSON.stringify(recipe)
         }).then(()=> {
             console.log('The new recipe was added to the database!')
+
+            // Here we want the loading state to be false;
+            setIsLoading(false);
         })
     }
 
@@ -62,9 +71,16 @@ const Create = () => {
                     <option value="180">180</option>
                     <option value="240">240</option>
                 </select>
-                <button>
+                
+                {/* If the loading state is false, show that button*/}
+                {!isLoading && <button>
                     Add recipe
-                </button>
+                </button>}
+
+                {/* Here we disable the button as the Recipe is being created, is loading is true */}
+                {isLoading && <button disabled>
+                    Adding recipe...
+                </button>}
             </form>
         </div>
      );
